@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        .msg{background: pink;color:red;}
+    </style>
+</head>
+<body>
+<!--
+Put Your code here
+-->
+<div ng-controller="MainCtrl">
+nazwa={{nazwa}}
+    <button ng-click="klikaj()">klikaj</button>
+    <div ng-model="something" class="msg">{{something}}</div>
+</div>
+
+<!--
+{{
+    $http({method: 'GET', url: '/someUrl'})
+    .success(function(data, status, headers, config) {
+        // this callback will be called asynchronously
+        // when the response is available
+        alert('ok');
+    })
+    .error(function(data, status, headers, config) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        alert('err');
+    });
+
+function successCallback(){
+alert('ok');
+}
+
+    $http.get('/someUrl').success(successCallback);
+}}
+-->
+<br>
+rows:<textarea ng-model="rows"></textarea><br>
+columns:<textarea ng-model="columns"></textarea><br>
+
+
+
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+</body>
+</html>
