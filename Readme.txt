@@ -1,6 +1,14 @@
-13:59 2013-11-19
-working example v0.2
+About this project
+--------------------------
+
+'angular_php_mysql' is try to help all them , who want connect Javascript 
+with MySQL in Angular framework.
+
+Documentation is in directory \_documentation
+
+Commenting recommend.
 
 
-11:33 2013-11-18
-Initial Version v0.1
+
+Good luck coders!
+
