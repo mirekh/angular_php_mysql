@@ -1,6 +1,7 @@
 <?php
 /**
  * Debugger
+ * @version 1.1 [eng]
  */
 class Debugger{
     public $logs = array();
@@ -25,7 +26,7 @@ class Debugger{
 }
 
 /**
- * Konfigurator polaczenia
+ * Configurator connection
  */
 class PolaczenieMySQL extends Debugger{
     public $host;
@@ -59,16 +60,12 @@ class PolaczenieMySQL extends Debugger{
         );
     }
 
-    /*
-    $db['default']['char_set'] = 'utf8';
-    $db['default']['dbcollat'] = 'utf8_general_ci';
-     */
     public function Connect(){
-        $this->Log('[i][Connect] Beg.');
-        $this->link = mysql_connect($this->host, $this->user, base64_decode($this->password));
+        $this->Log('[i][Connect] Begin.');
+        $this->link = mysql_connect($this->host, $this->user, $this->password);
         if (!$this->link) {
             $this->success = false;
-            $this->Log('[e] Nie mogłem połączyć się baza danych ['.$this->database.'] dla url ['.$this->host.']! <i>'. mysql_error().'</i>');
+            $this->Log('[e] Can\'t connect to DB ['.$this->database.'] for url ['.$this->host.']! <i>'. mysql_error().'</i>');
         }else{
             //ustaw baze
             $ok = mysql_select_db($this->database,$this->link);
@@ -77,14 +74,14 @@ class PolaczenieMySQL extends Debugger{
                 $result = mysql_query($query,$this->link);
                 if (!$result){
                     $this->success = false;
-                    $this->Log('[e] Nie mogłem ustawić zmiennej SET NAMES!');
+                    $this->Log('[e] Can\'t setup var SET NAMES in DB!');
                 }else{
                     $this->success = true;
                     $this->Log('[i] Connected successfully.');
                 };
             }else{
                 $this->success = false;
-                $this->Log('[e] Nie mogłem wybrać bazy danych ['.$this->database.'] dla url ['.$this->host.']!');
+                $this->Log('[e] Can\'t connect to DB ['.$this->database.'] for url ['.$this->host.']!');
             }
         };
         $this->Log('[i][Connect] End.');
@@ -105,12 +102,12 @@ class DBmysql extends Debugger{
     public function DBmysql(){
         $this->Log("[i][DBmysql] Init.");
         $this->conn = new PolaczenieMySQL();
-        //local or remote?
+        //local or remote DB?
         if($this->IsLocalhost()){
-            $this->conn->Setup("localhost","root","YXFxYXFx","sakila");
+            $this->conn->Setup("localhost","root","mypasshere","dbname");
             $this->Log("[i][DBmysql] Setup localhost.");
         }else{
-            $this->conn->Setup("mysql2.superhost.pl","mirsoft","d237d238hd","test");
+            $this->conn->Setup("mysql.myserver.pl","mypasshere","dbname","test");
             $this->Log("[i][DBmysql] Setup remote host.");
         }
         $this->Log("[i][DBmysql] Connect params: (".$this->conn->GetParams().")");
@@ -140,7 +137,7 @@ class DBmysql extends Debugger{
 }
 
 /*
-Ex:
+USE:
 $polaczenie = new DBmysql();
 */
 

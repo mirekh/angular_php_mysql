@@ -1,14 +1,15 @@
 <?php
-/*require_once("phpcode/class.dbc.php");
-$pp = new DBmysql();*/
-//$pp->ShowLogs();
-//$succ = $pp->IsSuccess();
+// Unmark comments bellow, if You can't connect to DB 
+// or You don't "what is going wrong?"
 
-//$polaczenie->conn->ShowLogs();
-
-//echo base64_encode ("aqqaqq");//YXFxYXFx
-
-
+/*
+// Test connection do DB
+require_once("phpcode/class.dbc.php");
+$pp = new DBmysql();
+$pp->ShowLogs();
+$succ = $pp->IsSuccess();
+$polaczenie->conn->ShowLogs();
+*/
 ?>
 <!doctype html>
 <html lang="en" ng-app="myApp">
@@ -29,22 +30,11 @@ $pp = new DBmysql();*/
 </head>
 <body>
 <?php
-/*DEV
+//if something going bad...show logs.
 if(!$succ){
     printf("<div class='warning'>%s</div>", $polaczenie->ShowLogs());
-};*/
-
-/*
-$q = "SELECT * FROM actor";
-$tab = $pp->GetAssocc($q);
-*/
-
-//DEV
-//var_export($tab);
+};
 ?>
-<!--
-Put Your code here
--->
 <div ng-controller="MainCtrl">
 nazwa={{nazwa}}
     <button ng-click="klikaj2()">klikaj2</button>
@@ -64,22 +54,7 @@ nazwa={{nazwa}}
         </tr>
     </tbody>
 </table>
-
-
-
-
-
-
 </div>
-
-<!--<fieldset><legend>data</legend><div ng-model="records">{{records}}</div></fieldset>-->
-<!--<fieldset><legend>arr</legend><div ng-repeat="single in records.$">{{single}}</div></fieldset>-->
-
-<!--
-<div>
-    rows:<textarea ng-model="rows"></textarea><br>
-    columns:<textarea ng-model="columns"></textarea>
-</div>-->
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>

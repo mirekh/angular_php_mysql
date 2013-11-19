@@ -1,0 +1,22 @@
+
+QUICK START
+==============
+
+
+How to use:
+
+1) import example-DB to Your MySQL (from file #\_database_table\sakila.sql).
+2) setup host,user,password in file (D:\GitHub\angular_php_mysql\app\phpcode\class.dbc.php ):
+
+   line 107:
+   $this->conn->Setup("localhost","root","mypasshere","dbname");
+   
+   or 
+
+   line 110 (if DB not in localhsot):
+   $this->conn->Setup("mysql.myserver.pl","mypasshere","dbname","test");
+
+3) input into web browser:    
+   http://localhost/T_Angular_PHP_MySQL/app/
+	 
+	 You should see something like on screen "Screenshot_1.jpg".
